@@ -15,7 +15,7 @@ export default function Home() {
         <OrbitControls />
         <ambientLight intensity={0.1} />
         <directionalLight color="red" position={[0, 0, 5]} />
-        <BoxAnimation />
+        <BoxAnimation isTesting={testing} />
       </Canvas>
     </div>
   );
