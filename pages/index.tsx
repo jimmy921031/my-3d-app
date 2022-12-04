@@ -9,14 +9,18 @@ export default function Home() {
   return (
     <div className="container">
       <Canvas>
-        <PerspectiveCamera args={[45, 1, 1, 500]} />
+        {/* <PerspectiveCamera args={[45, 1, 1, 500]} /> */}
         {testing ? <axesHelper args={[5]} /> : null}
         {testing ? <Stats /> : null}
         {testing ? <gridHelper args={[100, 100]} /> : null}
         <OrbitControls />
         <ambientLight intensity={0.1} />
-        <directionalLight color="red" position={[0, 0, 5]} />
-        <BoxAnimation isTesting={testing} />
+        <directionalLight color="red" position={[5, 0, -5]} />
+        <mesh>
+          <boxGeometry args={[2, 2, 2]} />
+          <meshStandardMaterial />
+        </mesh>
+        {/* <BoxAnimation isTesting={testing} /> */}
       </Canvas>
     </div>
   );
