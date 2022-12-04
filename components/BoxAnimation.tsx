@@ -7,7 +7,7 @@ type Props = {
   isTesting: boolean;
 };
 
-const BoxAnimation: React.FC<Props> = ({ isTesting }) => {
+const BoxAnimation: React.FC<Props> = ({ iTesting }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   {
     isTesting ? useHelper(meshRef, BoxHelper, "blue") : null;
