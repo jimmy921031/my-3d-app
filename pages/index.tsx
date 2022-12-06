@@ -3,33 +3,9 @@ import BoxAnimation from "../components/BoxAnimation";
 import CameraOrbitController from "../components/CameraOrbitController";
 import Lights from "../components/Lights";
 import TexturedPlane from "../components/Ground";
-import {
-  OrbitControls,
-  Stats,
-  PerspectiveCamera,
-  useTexture,
-  TransformControls,
-} from "@react-three/drei";
-
-const TexturedSpheres = () => {
-  const map = useTexture("./textures/laminate_floor_02_diff_1k.png");
-  const norMap = useTexture("./textures/laminate_floor_02_nor_gl_1k.png");
-  const roughMap = useTexture("./textures/laminate_floor_02_rough_1k.png");
-  return (
-    <>
-      <TransformControls>
-        <mesh scale={[1, 1, 1]} position={[0, 4, 0]} castShadow>
-          <sphereGeometry />
-          <meshStandardMaterial
-            map={map}
-            normalMap={norMap}
-            roughnessMap={roughMap}
-          />
-        </mesh>
-      </TransformControls>
-    </>
-  );
-};
+import { OrbitControls, Stats, PerspectiveCamera } from "@react-three/drei";
+import { Bamboo } from "../components/bamboo";
+import Spheres from "../components/Spheres";
 
 export default function Home() {
   const testing = true;
@@ -44,8 +20,9 @@ export default function Home() {
         <OrbitControls />
         <Lights />
         {/* <BoxAnimation isTesting={testing} /> */}
-        <TexturedSpheres />
+        <Spheres />
         <TexturedPlane />
+        <Bamboo />
       </Canvas>
     </div>
   );
