@@ -13,7 +13,6 @@ const BoxAnimation: React.FC<Props> = ({ iTesting }) => {
     isTesting ? useHelper(meshRef, BoxHelper, "blue") : null;
   }
   useFrame(() => {
-    console.log("hi");
     if (meshRef.current) {
       meshRef.current.rotation.x += 0.02;
     }
