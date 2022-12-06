@@ -4,7 +4,7 @@ import CameraOrbitController from "../components/CameraOrbitController";
 import Lights from "../components/Lights";
 import TexturedPlane from "../components/Ground";
 import { OrbitControls, Stats, PerspectiveCamera } from "@react-three/drei";
-import { Bamboo } from "../components/bamboo";
+import { Bamboo } from "../components/Bamboo";
 import Spheres from "../components/Spheres";
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
         {/* <BoxAnimation isTesting={testing} /> */}
         <Spheres />
         <TexturedPlane />
-        <Bamboo />
+        <Bamboo position={[0, 0, 0]} />
       </Canvas>
     </div>
   );
