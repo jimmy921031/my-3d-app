@@ -15,25 +15,25 @@ export const useInput = () => {
     KeyS: "backward",
     KeyA: "left",
     KeyD: "right",
-    LeftShift: "shift",
+    ShiftLeft: "shift",
     Space: "jump",
   };
-  const findKey = { key : string} => keys{key};
+  const findKey = (key: string) => keys[key];
 
-  useEffect(()=>{
-    const handleKeyDown = (e)=>{
-        setInput((m)=>({...m,[findKey(e.code)]:true}))
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      setInput((m) => ({ ...m, [findKey(e.code)]: true }));
     };
-    const handleKeyUp = (e)=>{
-        setInput((m)=>({...m,[findKey(e.code)]:false}))
-    }
-    document.addEventListener("keyDown",handleKeyDown)
-    document.addEventListener("keyUp",handleKeyUp)
-    return()=>{
-    document.removeEventListener("keyDown",handleKeyDown)
-    document.removeEventListener("keyUp",handleKeyUp)
-    }
-  } ,[])
+    const handleKeyUp = (e) => {
+      setInput((m) => ({ ...m, [findKey(e.code)]: false }));
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keyup", handleKeyUp);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keyup", handleKeyUp);
+    };
+  }, []);
 
   return input;
 };

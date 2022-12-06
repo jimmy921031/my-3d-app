@@ -1,8 +1,12 @@
 import { Canvas } from "@react-three/fiber";
-import BoxAnimation from "../components/BoxAnimation";
-import CameraOrbitController from "../components/CameraOrbitController";
 import Lights from "../components/Lights";
 import TexturedPlane from "../components/Ground";
+import { Bamboo } from "../components/Bamboo";
+import Spheres from "../components/Spheres";
+import { useInput } from "../hooks/useInput";
+import { useEffect } from "react";
+import { StoreModel } from "../components/store";
+import MyPlayer from "../components/MyPlayer";
 import {
   OrbitControls,
   Stats,
@@ -10,27 +14,6 @@ import {
   useGLTF,
   useAnimations,
 } from "@react-three/drei";
-import { Bamboo } from "../components/Bamboo";
-import Spheres from "../components/Spheres";
-import { useInput } from "../hooks/useInput";
-import { useEffect } from "react";
-import { StoreModel } from "../components/store";
-
-const MyPlayer = () => {
-  const model = useGLTF("./models/player.gltf");
-  const { actions } = useAnimations(model.animations, model.scene);
-
-  useEffect(() => {
-    actions?.jumping?.play();
-  }, []);
-
-  model.scene.traverse((object) => {
-    if (object.isMesh) {
-      object.castShadow = true;
-    }
-  });
-  return <primitive object={model.scene} />;
-};
 
 export default function Home() {
   const testing = false;
