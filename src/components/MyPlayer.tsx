@@ -58,7 +58,7 @@ const MyPlayer = () => {
       action = "walking";
       if (jump) {
         action = "jumping";
-      } else if (forward && shift) {
+      } else if (shift) {
         action = "running";
       }
     } else if (jump) {
